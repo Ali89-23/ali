@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 90vw;
+            height: 90vh;
+            max-width: 1200px;
+            max-height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: absolute;
+            touch-action: none;
+            transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        .card.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .card.inactive {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        .card h2, .card h3 {
+            font-family: 'Great Vibes', cursive;
+            color: #333;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .card p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .card::before, .card::after {
+            content: '❤️';
+            font-size: 1.5em;
+            position: absolute;
+            z-index: 1;
+            animation: colorChange 5s linear infinite;
+        }
+        .card::before {
+            top: 10px;
+            left: 10px;
+        }
+        .card::after {
+            top: 10px;
+            right: 10px;
+        }
+        @keyframes colorChange {
+            0% { color: #ff0000; } /* Red */
+            20% { color: #ff7f00; } /* Orange */
+            40% { color: #ffff00; } /* Yellow */
+            60% { color: #00ff00; } /* Green */
+            80% { color: #0000ff; } /* Blue */
+            100% { color: #4b0082; } /* Indigo */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .navigation button {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .navigation button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        .navigation button::before {
+            content: '❤️';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .navigation button:hover::before {
+            opacity: 0.5;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card active" id="page1">
+            <div>
+                <h2>Page 1: Our Journey Begins</h2>
+                <p>The Day when I see you first time is when you were presenting the Islamiyat presentation and main sir neeche ker ke soya hua tha. Then jab achanak aap ki awaz suni to main shocked ho gaya ke kaya hua. Then main ne life main first time kisi larki ko us nazro se dekha jo pehle kabhi nai dekha. I was like kaya baat ha yar she is different from others then main ne thora sa notice kia aap ko and then jab main ne girls ko parhna shuru kia to aap per focus hota tha mera zyada ter jo ke sab ko.</p>
+            </div>
+        </div>
+        <div class="card inactive" id="page2">
+            <div>
+                <p>pata chal gaya🤦‍♂️.then kuch days ham ne baat ki and then aap ko pata kaya hua that day was the best day of my life when I got you as my life partner.</p>
+                <h2>My jan e man🤞</h2>
+            </div>
+        </div>
+        <div class="card inactive" id="page3">
+            <div>
+                <p>Main literally kuch bhi ker skta hun aap ko apni wifey bnane ke lia thats why I left the army coz I does not need it my heart now totally belongs to you. Mujhe bas reels wegara dekh ker ye der lagne lag gaya ha ke kahin aap mujhe akela na chor jayan aap wo wahid hain jin se main buht paal kerta hun even I am a boy but aap ka door jana bardasht nai ker paun ga.</p>
+            </div>
+        </div>
+        <div class="card inactive" id="page4">
+            <div>
+                <h2>Things I Need From You</h2>
+                <p>1: I love you a lot and Just want from you that sometimes I become underconfident due to pressure or sometimes due to my parents. Plz never take me in the wrong way that mujhe aap ke baray main assure nai main buht zyada assure hun and I can't tell you how much I love you my Samavia😭. You are very dear to me and I love you a lot.<br>2: Aap ke ilawa main kabhi kisi ke baray main soch nai sakta. I loved you and grabbed your hands so you're mine only and only😭. I just want that plz kuch bhi ho jaya mujh se koi mistake ho jaya ya kuch or mujhe zaroor btana aap ne ye na ho kabhi mujhe pata na chala and aap mujh se buht naraz ho jayan and wo narazgi ki wajah se aap ka mujh se pyar kam ho jaya😭😭.</p>
+            </div>
+        </div>
+        <div class="card inactive" id="page5">
+            <div>
+                <p>Want that plz kuch bhi ho jaya mujh se koi mistake ho jaya ya kuch or mujhe zaroor btana aap ne ye na ho kabhi mujhe pata na chala and aap mujh se buht naraz ho jayan and wo narazgi ki wajah se aap ka mujh se pyar kam ho jaya😭😭.</p>
+            </div>
+        </div>
+        <div class="card inactive" id="page6">
+            <div>
+                <h1>I love you Samavia and I am too much serious about you and you know it. Plz whenever I felt like no one cares about me I text you coz it makes me feel happy and your love changes my whole mood 😭💛🧡💗.</h3>
+            </div>
+        </div>
+        <div class="navigation">
+            <button id="prevBtn" disabled>Previous</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        function updateNavigation() {
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === cards.length - 1;
+        }
+
+        function showCard(index) {
+            cards.forEach((card, i) => {
+                card.classList.toggle('active', i === index);
+                card.classList.toggle('inactive', i !== index);
+            });
+            currentIndex = index;
+            updateNavigation();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                showCard(currentIndex - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                showCard(currentIndex + 1);
+            }
+        });
+
+        // Initialize
+        updateNavigation();
+    </script>
+</body>
+</html>
